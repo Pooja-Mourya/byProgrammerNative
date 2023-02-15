@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
 import TextButton from '../../components/TextButton'
-import { COLORS, FONTS, SIZES, images } from '../../constants'
+import { COLORS, FONTS, SIZES } from '../../constants'
 
 const Welcome = ({ navigation }) => {
   return (
@@ -20,7 +20,7 @@ const Welcome = ({ navigation }) => {
         }}
       >
         <Image
-          source={images.logo}
+          source={require('../../assets/images/logo.png')}
           style={{
             width: 150,
             height: 150,

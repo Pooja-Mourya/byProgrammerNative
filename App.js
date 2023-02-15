@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 import { Welcome, AuthMain } from './screens'
 import Walkthrough from './screens/Walkthrough/Walkthrough'
+import MyTab from './navigation/MyTab'
 
 const Stack = createStackNavigator()
 
@@ -17,6 +18,8 @@ const App = () => {
       >
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="Walkthrough" component={Walkthrough} />
+        <Stack.Screen name="AuthMain" component={AuthMain} />
+        <Stack.Screen name="MyTab" component={MyTab} />
       </Stack.Navigator>
     </NavigationContainer>
   )

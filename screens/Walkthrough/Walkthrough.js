@@ -10,11 +10,11 @@ import {
 import React, { useState } from 'react'
 import { COLORS, constants, FONTS, SIZES } from '../../constants'
 import Walkthrough1 from './Walkthrough1'
-
+import TextButton from '../../components/TextButton'
 const height = Dimensions.get('screen').height
 const width = Dimensions.get('screen').width
 
-const Walkthrough = () => {
+const Walkthrough = ({ navigation }) => {
   //   console.log('data', constants.walkthrough)
   //   useState for Walkthrough2
 
@@ -80,7 +80,7 @@ const Walkthrough = () => {
             flexDirection: 'row',
           }}
         >
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={{
               backgroundColor: 'white',
               width: width / 2.5,
@@ -119,7 +119,37 @@ const Walkthrough = () => {
             >
               Log in
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <TextButton
+            label="Join Now"
+            contentContainerStyle={{
+              flex: 1,
+              marginLeft: SIZES.radius,
+              borderRadius: SIZES.radius,
+              backgroundColor: COLORS.light,
+            }}
+            labelStyle={{ ...FONTS.h3, color: COLORS.primary }}
+            onPress={() => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'AuthMain' }],
+              })
+            }}
+          />
+          <TextButton
+            label="Log In"
+            contentContainerStyle={{
+              flex: 1,
+              marginLeft: SIZES.radius,
+              borderRadius: SIZES.radius,
+              backgroundColor: COLORS.primary,
+              padding: SIZES.padding,
+            }}
+            labelStyle={{ ...FONTS.h3, color: 'white' }}
+            onPress={() => {
+              navigation.navigate('AuthMain')
+            }}
+          />
         </View>
       </View>
     )
