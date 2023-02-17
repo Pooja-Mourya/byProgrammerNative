@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import { Text, View, Image } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -13,10 +13,10 @@ export default function MyTab() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: COLORS.dark,
+        // tabBarActiveTintColor: COLORS.light,
         tabBarShowLabel: false,
         headerShown: false,
-        tabBarActiveBackgroundColor: COLORS.secondary08,
+        tabBarActiveBackgroundColor: COLORS.primary,
       }}
     >
       <Tab.Screen
@@ -30,7 +30,6 @@ export default function MyTab() {
                   style={{
                     width: 25,
                     height: 25,
-                    marginRight: SIZES.base,
                   }}
                 />
               </View>
