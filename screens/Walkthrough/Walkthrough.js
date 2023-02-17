@@ -191,8 +191,30 @@ const Walkthrough = ({ navigation }) => {
                   zIndex: 2,
                 }}
               >
-                {index == 0 && <Walkthrough1 />}
-                {/* {index == 1 && <Walkthrough2 animate={walk2Animated} />} */}
+                {index == 0 && (
+                  <Image
+                    source={require('../../assets/icons/chat.png')}
+                    style={{ width: 200, height: 200 }}
+                  />
+                )}
+                {index == 1 && (
+                  <Image
+                    source={require('../../assets/icons/qr-code.png')}
+                    style={{ width: 200, height: 200 }}
+                  />
+                )}
+                {index == 2 && (
+                  <Image
+                    source={require('../../assets/icons/live-streaming.png')}
+                    style={{ width: 200, height: 200 }}
+                  />
+                )}
+                {index == 3 && (
+                  <Image
+                    source={require('../../assets/icons/fire.png')}
+                    style={{ width: 200, height: 200 }}
+                  />
+                )}
               </View>
 
               {/* title & description  */}

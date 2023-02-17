@@ -30,7 +30,7 @@ const Welcome = ({ navigation }) => {
         <Text style={{ marginTop: SIZES.padding, ...FONTS.h1 }}>
           Welcome to
         </Text>
-        <Text style={{ marginTop: SIZES.base, ...FONTS.h1 }}>Margaret</Text>
+        <Text style={{ marginTop: SIZES.base, ...FONTS.h1 }}>Meeting</Text>
       </View>
 
       {/* Footer Buttons */}

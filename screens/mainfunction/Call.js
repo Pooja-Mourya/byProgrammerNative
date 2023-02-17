@@ -154,81 +154,75 @@ const Call = ({ navigation }) => {
           </View>
         </View>
       </View>
-      <ScrollView>
-        <View>
-          <Text
-            style={{ marginHorizontal: 15, color: COLORS.dark, fontSize: 18 }}
-          >
-            Resent Call
-          </Text>
-          <Image
-            source={require('../../assets/icons/chat.png')}
-            style={{ width: 50, height: 50, alignSelf: 'center' }}
-          />
-          <Text style={{ textAlign: 'center' }}>NO new Recent Call</Text>
-        </View>
-
+      <View>
         <Text
           style={{ marginHorizontal: 15, color: COLORS.dark, fontSize: 18 }}
         >
-          people
+          Resent Call
         </Text>
-        <FlatList
-          style={{ marginBottom: -30 }}
-          data={Peoples.filter((t) =>
-            t.userName.toLowerCase().includes(search.toLowerCase()),
-          )}
-          keyExtractor={(key) => key.id}
-          renderItem={({ item, index }) => {
-            return (
-              <View
-                style={{
-                  flexDirection: 'row',
-                  padding: 16,
-                  backgroundColor: COLORS.light,
-                  elevation: 1,
-                  marginVertical: 1,
-                }}
-              >
-                <Image
-                  source={item.userImg}
-                  style={{
-                    width: 50,
-                    height: 50,
-                    borderRadius: SIZES.radius,
-                  }}
-                />
-                <View>
-                  <Text style={{ marginHorizontal: 10 }}>{item.userName}</Text>
-                  <Text style={{ marginHorizontal: 10 }}>
-                    {item.messageTime}
-                  </Text>
-                </View>
-              </View>
-            )
-          }}
+        <Image
+          source={require('../../assets/icons/chat.png')}
+          style={{ width: 50, height: 50, alignSelf: 'center' }}
         />
+        <Text style={{ textAlign: 'center' }}>NO new Recent Call</Text>
+      </View>
 
-        <FAB
-          buttonColor={COLORS.support1}
-          iconTextColor="#FFFFFF"
-          onClickAction={() => {
-            navigation.navigate('SaveNumber')
-          }}
-          visible={true}
-          iconTextComponent={
-            <View>
+      <Text style={{ marginHorizontal: 15, color: COLORS.dark, fontSize: 18 }}>
+        people
+      </Text>
+      <FlatList
+        style={{ marginBottom: -30 }}
+        data={Peoples.filter((t) =>
+          t.userName.toLowerCase().includes(search.toLowerCase()),
+        )}
+        keyExtractor={(key) => key.id}
+        renderItem={({ item, index }) => {
+          return (
+            <View
+              style={{
+                flexDirection: 'row',
+                padding: 16,
+                backgroundColor: COLORS.light,
+                elevation: 1,
+                marginVertical: 1,
+              }}
+            >
               <Image
-                source={require('../../assets/icons/number-blocks.png')}
+                source={item.userImg}
                 style={{
-                  width: 35,
-                  height: 35,
+                  width: 50,
+                  height: 50,
+                  borderRadius: SIZES.radius,
                 }}
               />
+              <View>
+                <Text style={{ marginHorizontal: 10 }}>{item.userName}</Text>
+                <Text style={{ marginHorizontal: 10 }}>{item.messageTime}</Text>
+              </View>
             </View>
-          }
-        />
-      </ScrollView>
+          )
+        }}
+      />
+
+      <FAB
+        buttonColor={COLORS.support1}
+        iconTextColor="#FFFFFF"
+        onClickAction={() => {
+          navigation.navigate('SaveNumber')
+        }}
+        visible={true}
+        iconTextComponent={
+          <View>
+            <Image
+              source={require('../../assets/icons/number-blocks.png')}
+              style={{
+                width: 35,
+                height: 35,
+              }}
+            />
+          </View>
+        }
+      />
       <Modal
         animationType="slide"
         transparent={true}

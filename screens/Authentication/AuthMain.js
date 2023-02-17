@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import React, { useEffect, useState, useRef } from 'react'
 import { TextButton, FormInput } from '../../components'
-import { SIZES, images, icons, FONT, COLORS, FONTS } from '../../constants'
+import { SIZES, COLORS, FONTS } from '../../constants'
 import { MotiView, useAnimationState } from 'moti'
 import { Shadow } from 'react-native-shadow-2'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
@@ -21,7 +21,7 @@ const AuthMain = ({ navigation }) => {
   const [password, setPassword] = useState('')
   const [click, setClick] = useState(true)
 
-  const SignInFunction = () => {
+  function SignInFunction() {
     return (
       <Animated.View
         style={{ marginTop: SIZES.padding, height: SIZES.height * 0.55 }}
@@ -116,16 +116,32 @@ const AuthMain = ({ navigation }) => {
                 }}
                 onPress={() => navigation.navigate('MyTab')}
               />
+              <View style={{ alignItems: 'flex-start' }}>
+                <Text style={{ paddingHorizontal: SIZES.padding }}>
+                  If you are not register user{' '}
+                </Text>
+                <TextButton
+                  label={'Register now'}
+                  contentContainerStyle={{
+                    backgroundColor: 'null',
+                  }}
+                  labelStyle={{
+                    color: COLORS.support1,
+                    ...FONTS.h4,
+                    paddingHorizontal: SIZES.padding,
+                  }}
+                  onPress={() => SignUpFunction()}
+                />
+              </View>
             </KeyboardAwareScrollView>
           </View>
         </Shadow>
       </Animated.View>
     )
   }
-  const SignUpFunction = () => {
+  function SignUpFunction() {
     return (
       <Animated.View
-        // state={AnimationState}
         style={{ marginTop: SIZES.padding, height: SIZES.height * 0.55 }}
       >
         <Shadow>
@@ -266,9 +282,9 @@ const AuthMain = ({ navigation }) => {
 
   const AuthContainer = () => {
     if (mode == 'SignIn') {
-      return <SignInFunction />
+      return SignInFunction()
     } else {
-      return <SignUpFunction />
+      return SignUpFunction()
     }
   }
 
@@ -290,13 +306,10 @@ const AuthMain = ({ navigation }) => {
         }}
       />
 
-      <View style={styles.authContainer}>
-        {/* <SignUpFunction /> */}
-        {AuthContainer()}
-      </View>
+      <View style={styles.authContainer}>{AuthContainer()}</View>
 
-      <TextButton
-        label="Toggle"
+      {/* <TextButton
+        label="SignIn"
         onPress={() => {
           if (mode === 'SignUp') {
             // AnimationState.transitionTo('SignUp')
@@ -306,7 +319,25 @@ const AuthMain = ({ navigation }) => {
             setMode('SignIn')
           }
         }}
-      />
+      /> */}
+
+      <View style={{ flex: 2, marginTop: 350, alignItems: 'center' }}>
+        <Text>OR login with</Text>
+        <View style={{ flexDirection: 'row', marginVertical: 20 }}>
+          <Image
+            source={require('../../assets/icons/google.png')}
+            style={{ width: 40, height: 40, marginHorizontal: 10 }}
+          />
+          <Image
+            source={require('../../assets/icons/twitter.png')}
+            style={{ width: 40, height: 40, marginHorizontal: 10 }}
+          />
+          <Image
+            source={require('../../assets/icons/linkedin.png')}
+            style={{ width: 40, height: 40, marginHorizontal: 10 }}
+          />
+        </View>
+      </View>
     </View>
   )
 }
@@ -317,8 +348,6 @@ const styles = StyleSheet.create({
   authContainer: {
     flex: 1,
     width: SIZES.width - SIZES.padding * 2,
-    // paddingHorizontal: SIZES.padding,
-    // paddingVertical: SIZES.radius,
     borderRadius: SIZES.radius,
     backgroundColor: COLORS.light,
   },
